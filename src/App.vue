@@ -2,30 +2,65 @@
 import { ref } from "vue";
 import BillComp from "./components/BillComp.vue";
 
-const billItems = ref([
+export interface BillItem {
+  id: string;
+  name: string;
+  price: number;
+}
+interface Bill {
+  id: string;
+  name: string;
+  items: BillItem[];
+}
+
+const billItems = ref<Bill[]>([
   {
     id: crypto.randomUUID(),
     name: "Jose",
-    item: {
-      id: crypto.randomUUID(),
-      price: 3000,
-    },
+    items: [
+      {
+        id: crypto.randomUUID(),
+        name: "Perro",
+        price: 3000,
+      },
+      {
+        id: crypto.randomUUID(),
+        name: "coca",
+        price: 2000,
+      },
+    ],
   },
   {
     id: crypto.randomUUID(),
     name: "Jessica",
-    item: {
-      id: crypto.randomUUID(),
-      price: 3000,
-    },
+    items: [
+      {
+        id: crypto.randomUUID(),
+        name: "papas",
+        price: 3000,
+      },
+      {
+        id: crypto.randomUUID(),
+        name: "pepsi",
+        price: 4000,
+      },
+    ],
   },
   {
     id: crypto.randomUUID(),
     name: "Alguien",
-    item: {
-      id: crypto.randomUUID(),
-      price: 3000,
-    },
+    items: [
+      {
+        id: crypto.randomUUID(),
+        name: "pizza",
+        price: 1000,
+      },
+      {
+        id: crypto.randomUUID(),
+        name: "agua",
+        price: 2000,
+      },
+    ],
   },
 ]);
 </script>
@@ -34,7 +69,7 @@ const billItems = ref([
   <div class="bg-ctp-surface0/30 p-2">
     <h1 class="text-2xl font-bold w-full">SplitIt</h1>
   </div>
-  <BillComp v-for="owner in billItems" :key="owner.id" :owner="owner" />
+  <BillComp v-for="owner in billItems" :key="owner.id" :owner />
 </template>
 
 <style scoped></style>
