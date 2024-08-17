@@ -12,6 +12,9 @@ importers:
         specifier: ^3.4.37
         version: 3.4.38(typescript@5.5.4)
     devDependencies:
+      '@catppuccin/tailwindcss':
+        specifier: ^0.1.6
+        version: 0.1.6(tailwindcss@3.4.10)
       '@vitejs/plugin-vue':
         specifier: ^5.1.2
         version: 5.1.2(vite@5.4.1)(vue@3.4.38(typescript@5.5.4))
@@ -56,6 +59,11 @@ packages:
   '@babel/types@7.25.2':
     resolution: {integrity: sha512-YTnYtra7W9e6/oAZEHj0bJehPRUlLH9/fbpT5LfB0NhQXyALCRkRs3zH9v07IYhkgpqX6Z78FnuccZr/l4Fs4Q==}
     engines: {node: '>=6.9.0'}
+
+  '@catppuccin/tailwindcss@0.1.6':
+    resolution: {integrity: sha512-V+Y0AwZ5SSyvOVAcDl7Ng30xy+m82OKnEJ+9+kcZZ7lRyXuZrAb2GScdq9XR3v+ggt8qiZ/G4TvaC9cJ88AAXA==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0'
 
   '@esbuild/aix-ppc64@0.21.5':
     resolution: {integrity: sha512-1SDgH6ZSPTlggy1yI6+Dbkiz8xzpHJEVAlF/AM1tHPLsf5STom9rwtjE4hKAF20FfXXNTFqEYXyJNWh1GiZedQ==}
@@ -906,6 +914,10 @@ snapshots:
       '@babel/helper-string-parser': 7.24.8
       '@babel/helper-validator-identifier': 7.24.7
       to-fast-properties: 2.0.0
+
+  '@catppuccin/tailwindcss@0.1.6(tailwindcss@3.4.10)':
+    dependencies:
+      tailwindcss: 3.4.10
 
   '@esbuild/aix-ppc64@0.21.5':
     optional: true

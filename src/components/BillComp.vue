@@ -1,5 +1,17 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import AddButton from "./AddButton.vue";
+import Item from "./Item.vue";
+import Total from "./Total.vue";
+</script>
 
 <template>
-  <div>Hello from bil</div>
+  <div class="flex flex-col gap-2 m-2">
+    <div class="flex gap-2 items-center">
+      <h2 class="font-bold">Jose</h2>
+      <AddButton />
+    </div>
+    <Item />
+    <hr class="border-ctp-text/10" />
+    <Total />
+  </div>
 </template>
