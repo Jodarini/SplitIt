@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import AddButton from "./components/AddButton.vue";
 import BillComp from "./components/BillComp.vue";
 </script>
 

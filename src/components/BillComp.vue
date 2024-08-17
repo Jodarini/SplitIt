@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AddButton from "./AddButton.vue";
+import AddItem from "./AddItem.vue";
 import Item from "./Item.vue";
 import Total from "./Total.vue";
 </script>
@@ -11,6 +12,7 @@ import Total from "./Total.vue";
       <AddButton />
     </div>
     <Item />
+    <AddItem />
     <hr class="border-ctp-text/10" />
     <Total />
   </div>
