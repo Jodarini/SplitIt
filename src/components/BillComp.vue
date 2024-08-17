@@ -1,5 +1,5 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div>Hello from bill</div>
+  <div>Hello from bil</div>
 </template>
