@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import BillComp from "./components/BillComp.vue";
 import BillTotal from "./components/BillTotal.vue";
 import { store } from "./store";
@@ -13,7 +14,12 @@ export interface BillItem {
 const prices = store.bills.map((bill) =>
   bill.items.reduce((acc, item) => acc + item.price, 0),
 );
-const total = calculateTotal(prices);
+let total = computed(() => {
+  let currTotal = calculateTotal(prices);
+  currTotal = currTotal * (1 + store.tax / 100);
+  currTotal = currTotal * (1 + store.tip / 100);
+  return currTotal;
+});
 </script>
 
 <template>
@@ -26,8 +32,8 @@ const total = calculateTotal(prices);
   <BillTotal :total="total" />
 
   <div class="flex gap-1 text-ctp-subtext1 justify-center w-full">
-    <span>Tax: 10% | </span>
-    <span>Tip: 10%</span>
+    <span>Tax: {{ store.tax }}% | </span>
+    <span>Tip: {{ store.tip }}% </span>
   </div>
 </template>
 
