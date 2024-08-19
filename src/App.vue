@@ -11,7 +11,7 @@ export interface BillItem {
   price: number;
 }
 
-let total = computed(() => {
+const total = computed(() => {
   const prices = store.bills.map((bill) =>
     bill.items.reduce((acc, item) => acc + item.price, 0),
   );
@@ -29,7 +29,7 @@ let total = computed(() => {
 
   <BillComp v-for="user in store.bills" :key="user.id" :user />
 
-  <BillTotal :total="total" />
+  <BillTotal :total />
 
   <div class="flex gap-1 text-ctp-subtext1 justify-center w-full">
     <span>Tax: {{ store.tax }}% | </span>
