@@ -70,7 +70,7 @@ const billItems = ref<Bill[]>([
     <h1 class="text-2xl font-bold w-full">SplitIt</h1>
   </div>
 
-  <BillComp v-for="owner in billItems" :key="owner.id" :owner />
+  <BillComp v-for="user in billItems" :key="user.id" :user />
 
   <div class="flex gap-1 text-ctp-subtext1 justify-center w-full">
     <span>Tax: 10% | </span>
