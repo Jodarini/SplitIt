@@ -62,6 +62,6 @@ export const store = reactive({
       ],
     },
   ],
-  tax: 10,
+  tax: 8,
   tip: 15,
 });

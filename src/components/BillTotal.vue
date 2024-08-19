@@ -2,11 +2,11 @@
 import { computed } from "vue";
 
 const props = defineProps<{
-  total: number;
+  total: { total: number; taxTotal: number; tipTotal: number };
 }>();
 
 const formattedAmount = computed(() =>
-  props.total.toLocaleString("es-CO", {
+  props.total.total.toLocaleString("es-CO", {
     style: "currency",
     currency: "COP",
     minimumFractionDigits: 0,

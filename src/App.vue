@@ -15,10 +15,8 @@ const total = computed(() => {
   const prices = store.bills.map((bill) =>
     bill.items.reduce((acc, item) => acc + item.price, 0),
   );
-  let currTotal = calculateTotal(prices);
-  currTotal = currTotal * (1 + store.tax / 100);
-  currTotal = currTotal * (1 + store.tip / 100);
-  return currTotal;
+  let total = calculateTotal(prices, store.tax, store.tip);
+  return total;
 });
 </script>
 
@@ -36,5 +34,3 @@ const total = computed(() => {
     <span>Tip: {{ store.tip }}% </span>
   </div>
 </template>
-
-<style scoped></style>
