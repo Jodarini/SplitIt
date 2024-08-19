@@ -7,19 +7,21 @@ const props = defineProps<{
   user: User;
 }>();
 
-const nombre = ref<string>();
-const precio = ref<number>();
+const itemName = ref<string>();
+const itemPrice = ref<number>();
+const nameInput = ref();
 const addItem = () => {
   const theBill = store.bills.find((bill) => bill.name === props.user.name);
-  if (precio.value && precio.value !== 0) {
+  if (itemPrice.value && itemPrice.value !== 0) {
     theBill?.items.push({
       id: crypto.randomUUID(),
-      name: nombre.value!,
-      price: precio.value,
+      name: itemName.value!,
+      price: itemPrice.value,
     });
   }
-  precio.value = undefined;
-  nombre.value = "";
+  itemPrice.value = undefined;
+  itemName.value = "";
+  nameInput.value.focus();
 };
 </script>
 
@@ -29,7 +31,8 @@ const addItem = () => {
       type="text"
       placeholder="Nombre"
       class="bg-ctp-mantle/60 px-3 py-2 w-full"
-      v-model="nombre"
+      v-model="itemName"
+      ref="nameInput"
       required
     />
     <input
@@ -37,7 +40,7 @@ const addItem = () => {
       min="0"
       placeholder="Precio"
       class="bg-ctp-mantle/60 px-3 py-2 w-24"
-      v-model="precio"
+      v-model="itemPrice"
       required
     />
     <button type="submit" style="display: none"></button>
