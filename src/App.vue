@@ -11,10 +11,10 @@ export interface BillItem {
   price: number;
 }
 
-const prices = store.bills.map((bill) =>
-  bill.items.reduce((acc, item) => acc + item.price, 0),
-);
 let total = computed(() => {
+  const prices = store.bills.map((bill) =>
+    bill.items.reduce((acc, item) => acc + item.price, 0),
+  );
   let currTotal = calculateTotal(prices);
   currTotal = currTotal * (1 + store.tax / 100);
   currTotal = currTotal * (1 + store.tip / 100);
