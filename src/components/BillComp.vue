@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AddItem from "./AddItem.vue";
 import Item from "./Item.vue";
-import Total from "./Total.vue";
+import Total from "./UserTotal.vue";
 import type { BillItem } from "../App.vue";
 import calculateTotal from "../utils/calculateTotal";
 
