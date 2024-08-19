@@ -12,7 +12,7 @@ interface Bill {
 }
 
 export const store = reactive({
-  bills: [
+  bills: <Bill[]>[
     {
       id: crypto.randomUUID(),
       name: "Jose",

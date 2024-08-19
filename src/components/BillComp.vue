@@ -4,8 +4,9 @@ import Item from "./Item.vue";
 import Total from "./UserTotal.vue";
 import type { BillItem } from "../App.vue";
 import calculateTotal from "../utils/calculateTotal";
+import { computed } from "vue";
 
-interface User {
+export interface User {
   id: string;
   name: string;
   items: BillItem[];
@@ -15,7 +16,7 @@ const props = defineProps<{
   user: User;
 }>();
 
-const billTotal = props.user.items.map((item) => item.price);
+const billTotal = computed(() => props.user.items.map((item) => item.price));
 </script>
 
 <template>
@@ -24,7 +25,7 @@ const billTotal = props.user.items.map((item) => item.price);
       <h2 class="font-bold">{{ user.name }}</h2>
     </div>
     <Item v-for="item in user.items" :key="item.id" :item="item" />
-    <AddItem />
+    <AddItem :user />
     <hr class="border-ctp-text/10" />
     <Total :total="calculateTotal(billTotal)" />
   </div>
