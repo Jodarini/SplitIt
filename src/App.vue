@@ -69,7 +69,13 @@ const billItems = ref<Bill[]>([
   <div class="bg-ctp-surface0/30 p-2">
     <h1 class="text-2xl font-bold w-full">SplitIt</h1>
   </div>
+
   <BillComp v-for="owner in billItems" :key="owner.id" :owner />
+
+  <div class="flex gap-1 text-ctp-subtext1 justify-center w-full">
+    <span>Tax: 10% | </span>
+    <span>Tip: 10%</span>
+  </div>
 </template>
 
 <style scoped></style>
