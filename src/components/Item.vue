@@ -15,7 +15,7 @@ const formattedAmount = computed(() =>
 
 <template>
   <div
-    class="w-full flex px-3 py-2 justify-between bg-ctp-mantle shadow shadow-ctp-crust"
+    class="flex w-full justify-between bg-ctp-mantle px-3 py-2 shadow shadow-ctp-crust"
   >
     <p class="font-bold">{{ item.name }}</p>
     <p class="">{{ formattedAmount }}</p>

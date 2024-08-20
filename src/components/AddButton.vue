@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="rounded-full w-fit p-2 bg-ctp-blue text-ctp-crust">
+  <div class="w-fit rounded-full bg-ctp-blue p-2 text-ctp-crust">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"

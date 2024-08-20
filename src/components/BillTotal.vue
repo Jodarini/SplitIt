@@ -16,5 +16,5 @@ const formattedAmount = computed(() =>
 </script>
 
 <template>
-  <div class="font-bold text-right py-2 px-6">Total: {{ formattedAmount }}</div>
+  <div class="px-6 py-2 text-right font-bold">Total: {{ formattedAmount }}</div>
 </template>

@@ -32,15 +32,15 @@ const formattedTotal = computed(() =>
 </script>
 
 <template>
-  <div class="w-full flex px-3 justify-between">
+  <div class="flex w-full justify-between px-3">
     <p class="font-bold">Tip</p>
     <p class="">{{ formattedTip }}</p>
   </div>
-  <div class="w-full flex px-3 justify-between">
+  <div class="flex w-full justify-between px-3">
     <p class="font-bold">Tax</p>
     <p class="">{{ formattedTax }}</p>
   </div>
-  <div class="w-full flex px-3 justify-between">
+  <div class="flex w-full justify-between px-3">
     <p class="font-bold">Total</p>
     <p class="">{{ formattedTotal }}</p>
   </div>

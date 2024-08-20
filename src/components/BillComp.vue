@@ -24,8 +24,8 @@ const total = computed(() =>
 </script>
 
 <template>
-  <div class="flex flex-col gap-2 m-2 mb-6 p-2">
-    <div class="flex gap-2 items-center justify-between">
+  <div class="m-2 mb-6 flex flex-col gap-2 p-2">
+    <div class="flex items-center justify-between gap-2">
       <h2 class="font-bold">{{ user.name }}</h2>
     </div>
     <Item v-for="item in user.items" :key="item.id" :item="item" />

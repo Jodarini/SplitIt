@@ -26,12 +26,12 @@ const addItem = () => {
 </script>
 
 <template>
-  <form class="flex flex-col gap-2 w-full" @submit.prevent="addItem">
+  <form class="flex w-full flex-col gap-2" @submit.prevent="addItem">
     <div class="flex w-full">
       <input
         type="text"
         placeholder="Nombre"
-        class="bg-ctp-mantle/60 px-3 py-2 w-full"
+        class="w-full bg-ctp-mantle/60 px-3 py-2"
         v-model="itemName"
         ref="nameInput"
         required
@@ -40,14 +40,14 @@ const addItem = () => {
         type="number"
         min="0"
         placeholder="Precio"
-        class="bg-ctp-mantle/60 px-3 py-2 w-24"
+        class="w-24 bg-ctp-mantle/60 px-3 py-2"
         v-model="itemPrice"
         required
       />
     </div>
     <button
       type="submit"
-      class="w-full p-2 bg-ctp-mauve rounded text-ctp-surface0"
+      class="w-full rounded bg-ctp-mauve p-2 text-ctp-surface0"
     >
       Add item
     </button>

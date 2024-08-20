@@ -22,14 +22,14 @@ const total = computed(() => {
 
 <template>
   <div class="bg-ctp-surface0/30 p-2">
-    <h1 class="text-2xl font-bold w-full">SplitIt</h1>
+    <h1 class="w-full text-2xl font-bold">SplitIt</h1>
   </div>
 
   <BillComp v-for="user in store.bills" :key="user.id" :user />
 
   <BillTotal :total />
 
-  <div class="flex gap-1 text-ctp-subtext1 justify-center w-full">
+  <div class="flex w-full justify-center gap-1 text-ctp-subtext1">
     <span>Tax: {{ store.tax }}% | </span>
     <span>Tip: {{ store.tip }}% </span>
   </div>
