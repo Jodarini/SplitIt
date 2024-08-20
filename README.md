@@ -7,8 +7,11 @@
 - **User-Friendly Interface**: Clean and intuitive UI to make expense management a breeze.
 
 ## Technologies
-
-Vue.js, TypeScript, Tailwind CSS
+<p>  
+    <img alt="Vue.js" src="https://img.shields.io/badge/-Vue-4FC08D?style=flat&logo=vuedotjs&logoColor=white" />
+    <img alt="TypeScript" src="https://img.shields.io/badge/-TypeScript-007ACC?style=flat&logo=typescript&logoColor=white" />
+    <img alt="Tailwind" src="https://img.shields.io/badge/Tailwind_CSS-0f172a?style=flat&logo=tailwind-css&logoColor=38bdf8" />
+</p>
 
 ## Installation
 
