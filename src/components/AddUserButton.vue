@@ -13,7 +13,7 @@ const addUser = () => {
 <template>
   <div class="flex items-center gap-2 p-4">
     <button
-      class="w-fit rounded-full bg-ctp-blue p-2 text-ctp-crust"
+      class="w-fit rounded-full bg-ctp-mauve p-2 text-ctp-crust"
       @click="addUser"
     >
       <svg

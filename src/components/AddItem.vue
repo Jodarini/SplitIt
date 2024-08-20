@@ -41,7 +41,7 @@ const addItem = () => {
     <div class="flex w-full">
       <input
         type="text"
-        placeholder="Nombre"
+        placeholder="Nuevo item"
         class="w-full bg-ctp-mantle/60 px-3 py-2"
         v-model="itemName"
         ref="nameInput"
@@ -58,9 +58,9 @@ const addItem = () => {
     </div>
     <button
       type="submit"
-      class="w-full rounded bg-ctp-mauve p-2 text-ctp-surface0"
+      class="w-full rounded bg-ctp-mauve p-2 font-bold text-ctp-surface0"
     >
-      Add item
+      Agregar item
     </button>
   </form>
 </template>
