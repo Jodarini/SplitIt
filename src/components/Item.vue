@@ -7,6 +7,8 @@ const props = defineProps<{
   item: BillItem;
 }>();
 
+// TODO: update item functionality (name and price)
+
 const formattedAmount = computed(() => {
   if (props.item.price === undefined) return 0;
   return props.item.price.toLocaleString("es-CO", {

@@ -24,7 +24,10 @@ const addUser = () => {
         class="text-md w-full bg-ctp-surface0/40 px-2"
         placeholder="Nuevo split"
       />
-      <button type="submit" class="rounded bg-ctp-mauve p-2 text-ctp-surface0">
+      <button
+        type="submit"
+        class="rounded-r bg-ctp-mauve p-2 text-ctp-surface0"
+      >
         Crear
       </button>
     </form>
