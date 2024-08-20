@@ -52,6 +52,7 @@ const handleKeyDown = (e: KeyboardEvent) => {
 };
 
 const deleteSplit = () => {
+  // TODO: add confirmation prompt
   const indexToRemove = store.bills.findIndex(
     (bill) => bill.id === props.user.id,
   );
