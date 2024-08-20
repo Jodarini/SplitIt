@@ -1,37 +1,34 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import { store } from "../store";
+
+const userName = ref("");
 
 const addUser = () => {
   store.bills.unshift({
     id: crypto.randomUUID(),
-    name: "unnamed",
+    name: userName.value,
     items: null,
   });
+  userName.value = "";
 };
 </script>
 
 <template>
   <div class="flex items-center gap-2 p-4">
-    <button
-      class="w-fit rounded-full bg-ctp-mauve p-2 text-ctp-crust"
-      @click="addUser"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        stroke="currentColor"
-        fill="none"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="1"
-        viewBox="0 0 24 24"
-        data-icon="SvgPlus"
-        aria-hidden="true"
-      >
-        <path d="M12 4v16m8-8H4"></path>
-      </svg>
-    </button>
-    Add user
+    <form @submit.prevent="addUser" class="flex w-full font-bold">
+      <input
+        type="text"
+        v-model="userName"
+        required
+        class="text-md w-full bg-ctp-surface0/40 px-2"
+        placeholder="Nuevo split"
+      />
+      <button type="submit" class="rounded bg-ctp-mauve p-2 text-ctp-surface0">
+        Crear
+      </button>
+    </form>
   </div>
 </template>
+
+<style scoped></style>
