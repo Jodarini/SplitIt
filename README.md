@@ -1,7 +1,4 @@
 # SplitIt
-
-## Description
-
 **SplitIt** is a web application designed to help users easily split expenses among friends or group members.
 
 ## Features
