@@ -8,7 +8,7 @@ export interface BillItem {
 interface Bill {
   id: string;
   name: string;
-  items: BillItem[];
+  items: BillItem[] | null;
 }
 
 export const store = reactive({

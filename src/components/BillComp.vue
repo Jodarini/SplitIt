@@ -10,14 +10,17 @@ import { store } from "../store";
 export interface User {
   id: string;
   name: string;
-  items: BillItem[];
+  items: BillItem[] | null;
 }
 
 const props = defineProps<{
   user: User;
 }>();
 
-const billTotal = computed(() => props.user.items.map((item) => item.price));
+const billTotal = computed(() => {
+  if (props.user.items == null) return [0];
+  return props.user.items.map((item) => item.price);
+});
 const total = computed(() =>
   calculateTotal(billTotal.value, store.tax, store.tip),
 );

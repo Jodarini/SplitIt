@@ -4,13 +4,14 @@ import type { BillItem } from "../App.vue";
 const props = defineProps<{
   item: BillItem;
 }>();
-const formattedAmount = computed(() =>
-  props.item.price.toLocaleString("es-CO", {
+const formattedAmount = computed(() => {
+  if (props.item.price === undefined) return 0;
+  return props.item.price.toLocaleString("es-CO", {
     style: "currency",
     currency: "COP",
     minimumFractionDigits: 0,
-  }),
-);
+  });
+});
 </script>
 
 <template>

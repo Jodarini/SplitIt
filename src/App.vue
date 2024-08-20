@@ -4,6 +4,7 @@ import BillComp from "./components/BillComp.vue";
 import BillTotal from "./components/BillTotal.vue";
 import { store } from "./store";
 import calculateTotal from "./utils/calculateTotal";
+import AddUserButton from "./components/AddUserButton.vue";
 
 export interface BillItem {
   id: string;
@@ -12,9 +13,10 @@ export interface BillItem {
 }
 
 const total = computed(() => {
-  const prices = store.bills.map((bill) =>
-    bill.items.reduce((acc, item) => acc + item.price, 0),
-  );
+  const prices = store.bills.map((bill) => {
+    if (bill.items == null) return 0;
+    return bill.items.reduce((acc, item) => acc + item.price, 0);
+  });
   let total = calculateTotal(prices, store.tax, store.tip);
   return total;
 });
@@ -24,6 +26,7 @@ const total = computed(() => {
   <div class="bg-ctp-surface0/30 p-2">
     <h1 class="w-full text-2xl font-bold">SplitIt</h1>
   </div>
+  <AddUserButton />
 
   <BillComp v-for="user in store.bills" :key="user.id" :user />
 

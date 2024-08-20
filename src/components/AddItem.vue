@@ -11,13 +11,24 @@ const itemName = ref<string>();
 const itemPrice = ref<number>();
 const nameInput = ref();
 const addItem = () => {
-  const theBill = store.bills.find((bill) => bill.name === props.user.name);
+  const userBill = store.bills.find((bill) => bill.name === props.user.name);
+
   if (itemPrice.value && itemPrice.value !== 0) {
-    theBill?.items.push({
-      id: crypto.randomUUID(),
-      name: itemName.value!,
-      price: itemPrice.value,
-    });
+    if (userBill?.items === null) {
+      userBill.items = [
+        {
+          id: crypto.randomUUID(),
+          name: itemName.value!,
+          price: itemPrice.value,
+        },
+      ];
+    } else {
+      userBill?.items.push({
+        id: crypto.randomUUID(),
+        name: itemName.value!,
+        price: itemPrice.value,
+      });
+    }
   }
   itemPrice.value = undefined;
   itemName.value = "";
