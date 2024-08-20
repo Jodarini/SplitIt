@@ -50,6 +50,15 @@ const handleKeyDown = (e: KeyboardEvent) => {
     nameInput.value.focus();
   }
 };
+
+const deleteSplit = () => {
+  const indexToRemove = store.bills.findIndex(
+    (bill) => bill.id === props.user.id,
+  );
+  if (indexToRemove !== -1) {
+    store.bills.splice(indexToRemove, 1);
+  }
+};
 </script>
 
 <template>
@@ -60,13 +69,18 @@ const handleKeyDown = (e: KeyboardEvent) => {
       tabindex="0"
       @keydown="handleKeyDown($event)"
     >
-      <h2
-        v-if="!showNameInput"
-        class="w-full p-2 text-xl font-bold text-ctp-mauve"
-        @click="toggleNameInput"
-      >
-        {{ user.name }}
-      </h2>
+      <div v-if="!showNameInput" class="flex w-full justify-between">
+        <h2
+          class="w-full p-2 text-xl font-bold text-ctp-mauve"
+          @click="toggleNameInput"
+        >
+          {{ user.name }}
+        </h2>
+        <button @click="deleteSplit" class="min-w-max text-ctp-red">
+          Delete split
+        </button>
+      </div>
+
       <form
         v-else
         @submit.prevent="updateUserName"
