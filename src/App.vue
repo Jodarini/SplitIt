@@ -13,6 +13,7 @@ export interface BillItem {
 }
 
 const newTip = ref(store.tip);
+const newTax = ref(store.tax);
 
 const total = computed(() => {
   const prices = store.bills.map((bill) => {
@@ -25,6 +26,10 @@ const total = computed(() => {
 
 const updateTip = () => {
   store.tip = newTip.value;
+};
+
+const updateTax = () => {
+  store.tax = newTax.value;
 };
 </script>
 
@@ -39,8 +44,16 @@ const updateTip = () => {
   <BillTotal :total />
 
   <div class="flex w-full justify-center gap-1 text-ctp-subtext1">
-    <span>Tax: {{ store.tax }}% | </span>
-    <span>Tip: </span>
+    <span>Tax(%):</span>
+    <input
+      type="number"
+      class="w-max bg-transparent"
+      min="0"
+      max="100"
+      v-model="newTax"
+      @change="updateTax"
+    />
+    <span>Tip(%):</span>
     <input
       type="number"
       class="w-max bg-transparent"
