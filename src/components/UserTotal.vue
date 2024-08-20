@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import type { User } from "./BillComp.vue";
 
 const props = defineProps<{
   total: { total: number; taxTotal: number; tipTotal: number };
@@ -41,7 +42,7 @@ const formattedTotal = computed(() =>
     <p class="">{{ formattedTax }}</p>
   </div>
   <div class="flex w-full justify-between px-3">
-    <p class="font-bold">Total</p>
+    <p class="font-bold">Total del split</p>
     <p class="">{{ formattedTotal }}</p>
   </div>
 </template>

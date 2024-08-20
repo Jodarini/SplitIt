@@ -39,13 +39,13 @@ const updateTax = () => {
   </div>
   <p v-if="store.bills.length === 0" class="m-4 mb-0 bg-ctp-surface0 p-2">
     <b>¡Aún no tienes ningún split! </b>¡Empieza a dividir la cuenta! Escribe el
-    nombre del primer <b>split </b>y dale a Crear.
+    nombre del primer <b>split </b>y dale a <b>Crear</b>.
   </p>
   <AddUserButton />
 
   <BillComp v-for="user in store.bills" :key="user.id" :user />
 
-  <BillTotal :total />
+  <BillTotal v-if="store.bills.length > 0" :total />
 
   <div class="flex w-full justify-center gap-1 text-ctp-subtext1">
     <span>Tax(%):</span>
