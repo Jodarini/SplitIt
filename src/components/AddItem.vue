@@ -26,23 +26,30 @@ const addItem = () => {
 </script>
 
 <template>
-  <form class="flex gap-1 w-full" @submit.prevent="addItem">
-    <input
-      type="text"
-      placeholder="Nombre"
-      class="bg-ctp-mantle/60 px-3 py-2 w-full"
-      v-model="itemName"
-      ref="nameInput"
-      required
-    />
-    <input
-      type="number"
-      min="0"
-      placeholder="Precio"
-      class="bg-ctp-mantle/60 px-3 py-2 w-24"
-      v-model="itemPrice"
-      required
-    />
-    <button type="submit" style="display: none"></button>
+  <form class="flex flex-col gap-2 w-full" @submit.prevent="addItem">
+    <div class="flex w-full">
+      <input
+        type="text"
+        placeholder="Nombre"
+        class="bg-ctp-mantle/60 px-3 py-2 w-full"
+        v-model="itemName"
+        ref="nameInput"
+        required
+      />
+      <input
+        type="number"
+        min="0"
+        placeholder="Precio"
+        class="bg-ctp-mantle/60 px-3 py-2 w-24"
+        v-model="itemPrice"
+        required
+      />
+    </div>
+    <button
+      type="submit"
+      class="w-full p-2 bg-ctp-mauve rounded text-ctp-surface0"
+    >
+      Add item
+    </button>
   </form>
 </template>
