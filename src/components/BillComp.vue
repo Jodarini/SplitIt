@@ -17,6 +17,8 @@ const props = defineProps<{
   user: User;
 }>();
 
+const nameDiv = ref();
+const nameInput = ref();
 const showNameInput = ref(false);
 const userName = ref<string>(props.user.name);
 
@@ -37,11 +39,27 @@ const updateUserName = () => {
   props.user.name = userName.value;
   showNameInput.value = false;
 };
+
+const handleKeyDown = (e: KeyboardEvent) => {
+  // if (e.key === "Escape") {
+  //   showNameInput.value = false;
+  // }
+
+  if (e.key === "Enter") {
+    showNameInput.value = true;
+    nameInput.value.focus();
+  }
+};
 </script>
 
 <template>
   <div class="m-2 mb-6 flex flex-col gap-2 p-2">
-    <div class="flex items-center justify-between gap-2">
+    <div
+      ref="nameDiv"
+      class="flex items-center justify-between gap-2"
+      tabindex="0"
+      @keydown="handleKeyDown($event)"
+    >
       <h2
         v-if="!showNameInput"
         class="w-full p-2 text-xl font-bold text-ctp-mauve"
@@ -55,8 +73,10 @@ const updateUserName = () => {
         class="flex w-full font-bold"
       >
         <input
+          ref="nameInput"
           type="text"
           v-model="userName"
+          @keydown="handleKeyDown($event)"
           required
           class="w-full bg-ctp-surface0/40 px-2 text-xl"
         />
@@ -64,7 +84,7 @@ const updateUserName = () => {
           type="submit"
           class="rounded bg-ctp-mauve p-2 text-ctp-surface0"
         >
-          update
+          Actualizar
         </button>
       </form>
     </div>
