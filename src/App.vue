@@ -37,6 +37,10 @@ const updateTax = () => {
   <div class="bg-ctp-surface0/30 p-2">
     <h1 class="w-full text-2xl font-bold">SplitIt</h1>
   </div>
+  <p v-if="store.bills.length === 0" class="m-4 mb-0 bg-ctp-surface0 p-2">
+    <b>¡Aún no tienes ningún split! </b>¡Empieza a dividir la cuenta! Escribe el
+    nombre del primer <b>split </b>y dale a Crear.
+  </p>
   <AddUserButton />
 
   <BillComp v-for="user in store.bills" :key="user.id" :user />
