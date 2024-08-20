@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import BillComp from "./components/BillComp.vue";
 import BillTotal from "./components/BillTotal.vue";
 import { store } from "./store";
@@ -12,6 +12,8 @@ export interface BillItem {
   price: number;
 }
 
+const newTip = ref(store.tip);
+
 const total = computed(() => {
   const prices = store.bills.map((bill) => {
     if (bill.items == null) return 0;
@@ -20,6 +22,10 @@ const total = computed(() => {
   let total = calculateTotal(prices, store.tax, store.tip);
   return total;
 });
+
+const updateTip = () => {
+  store.tip = newTip.value;
+};
 </script>
 
 <template>
@@ -34,6 +40,14 @@ const total = computed(() => {
 
   <div class="flex w-full justify-center gap-1 text-ctp-subtext1">
     <span>Tax: {{ store.tax }}% | </span>
-    <span>Tip: {{ store.tip }}% </span>
+    <span>Tip: </span>
+    <input
+      type="number"
+      class="w-max bg-transparent"
+      min="0"
+      max="100"
+      v-model="newTip"
+      @change="updateTip"
+    />
   </div>
 </template>
