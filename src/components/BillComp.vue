@@ -59,7 +59,6 @@ const deleteSplit = () => {
   );
   if (indexToRemove !== -1) {
     store.bills.splice(indexToRemove, 1);
-    // localStorage.bills = store.bills;
   }
 };
 </script>

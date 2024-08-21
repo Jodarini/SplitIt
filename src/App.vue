@@ -50,53 +50,57 @@ watch(store, () => {
 </script>
 
 <template>
-  <header
-    class="bg-ctp-surface0/30 py-2 px-4 flex justify-between items-center"
-  >
-    <h1 class="text-2xl font-bold text-ctp-mauve">SplitIt</h1>
-
-    <div class="flex gap-2 items-center">
-      <div class="flex gap-2">
-        <span>Tax (%): </span>
-        <input
-          type="number"
-          class="w-12 bg-ctp-crust/50"
-          min="0"
-          max="100"
-          v-model="newTax"
-          @change="updateTax"
-        />
-      </div>
-      <div class="flex gap-2 items-center">
-        <span>Tip (%): </span>
-        <input
-          type="number"
-          class="w-12 bg-ctp-crust/50"
-          min="0"
-          max="100"
-          v-model="newTip"
-          @change="updateTip"
-        />
-      </div>
-    </div>
-  </header>
-  <p v-if="store.bills.length === 0" class="m-4 mb-0 bg-ctp-surface0 p-2">
-    <b>¡Aún no tienes ningún split! </b>¡Empieza a dividir la cuenta! Escribe el
-    nombre del primer <b>split </b>y dale a <b>Crear</b>.
-  </p>
-  <AddUserButton />
-
-  <BillComp v-for="user in store.bills" :key="user.id" :user />
-
-  <div v-if="store.bills.length > 0" class="flex justify-between px-4">
-    <button
-      @click="store.bills = []"
-      class="min-w-max text-ctp-red hover:bg-ctp-surface0/50 px-1 rounded"
+  <div id="container" class="md:mx-auto md:my-0 md:w-[768px]">
+    <header
+      class="bg-ctp-surface0/30 py-2 px-4 flex justify-between items-center"
     >
-      Borrar todos
-    </button>
-    <BillTotal :total />
-  </div>
+      <h1 class="text-2xl font-bold text-ctp-mauve">SplitIt</h1>
 
-  <div class="flex w-full justify-center gap-2 text-ctp-subtext1"></div>
+      <div class="flex gap-2 items-center">
+        <div class="flex gap-2">
+          <span>Tax (%): </span>
+          <input
+            type="number"
+            class="w-12 bg-ctp-crust/50"
+            min="0"
+            max="100"
+            v-model="newTax"
+            @change="updateTax"
+          />
+        </div>
+        <div class="flex gap-2 items-center">
+          <span>Tip (%): </span>
+          <input
+            type="number"
+            class="w-12 bg-ctp-crust/50"
+            min="0"
+            max="100"
+            v-model="newTip"
+            @change="updateTip"
+          />
+        </div>
+      </div>
+    </header>
+    <main>
+      <p v-if="store.bills.length === 0" class="m-4 mb-0 bg-ctp-surface0 p-2">
+        <b>¡Aún no tienes ningún split! </b>¡Empieza a dividir la cuenta!
+        Escribe el nombre del primer <b>split </b>y dale a <b>Crear</b>.
+      </p>
+      <AddUserButton />
+
+      <BillComp v-for="user in store.bills" :key="user.id" :user />
+
+      <div v-if="store.bills.length > 0" class="flex justify-between px-4">
+        <button
+          @click="store.bills = []"
+          class="min-w-max text-ctp-red hover:bg-ctp-surface0/50 px-1 rounded"
+        >
+          Borrar todos
+        </button>
+        <BillTotal :total />
+      </div>
+
+      <div class="flex w-full justify-center gap-2 text-ctp-subtext1"></div>
+    </main>
+  </div>
 </template>
