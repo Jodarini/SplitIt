@@ -3,7 +3,10 @@ import { computed } from "vue";
 
 const props = defineProps<{
   total: { total: number; taxTotal: number; tipTotal: number };
+  numberOfItems: number;
 }>();
+
+console.log(props.numberOfItems);
 
 const formattedAmount = computed(() =>
   props.total.total.toLocaleString("es-CO", {
@@ -16,5 +19,8 @@ const formattedAmount = computed(() =>
 </script>
 
 <template>
-  <div class="py-2 text-right font-bold">Total: {{ formattedAmount }}</div>
+  <div class="flex flex-col font-bold">
+    <div class="py-2">Numero de items: {{ numberOfItems }}</div>
+    <div class="py-2">Total: {{ formattedAmount }}</div>
+  </div>
 </template>

@@ -24,6 +24,16 @@ const total = computed(() => {
   return total;
 });
 
+const numberOfItems = computed((): number => {
+  let total = 0;
+  store.bills.forEach((bill) => {
+    if (bill.items) {
+      total = total + bill.items?.length;
+    }
+  });
+  return total;
+});
+
 const updateTip = () => {
   store.tip = newTip.value;
 };
@@ -82,7 +92,7 @@ watch(store, () => {
       </div>
     </header>
     <main class="p-4 md:p-0">
-      <p v-if="store.bills.length === 0" class="m-4 mb-0 bg-ctp-surface0 p-2">
+      <p v-if="store.bills.length === 0" class="mb-0 bg-ctp-surface0 p-2">
         <b>¡Aún no tienes ningún split! </b>¡Empieza a dividir la cuenta!
         Escribe el nombre del primer <b>split </b>y dale a <b>Crear</b>.
       </p>
@@ -90,14 +100,14 @@ watch(store, () => {
 
       <BillComp v-for="user in store.bills" :key="user.id" :user />
 
-      <div v-if="store.bills.length > 0" class="flex justify-between px-4">
+      <div v-if="store.bills.length > 0" class="flex justify-between">
+        <BillTotal :total :numberOfItems />
         <button
           @click="store.bills = []"
           class="min-w-max text-ctp-red hover:bg-ctp-surface0/50 px-1 rounded"
         >
           Borrar todos
         </button>
-        <BillTotal :total />
       </div>
 
       <div class="flex w-full justify-center gap-2 text-ctp-subtext1"></div>
