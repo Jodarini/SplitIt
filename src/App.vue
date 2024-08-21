@@ -34,7 +34,9 @@ const updateTax = () => {
 </script>
 
 <template>
-  <div class="bg-ctp-surface0/30 p-2 flex justify-between items-center">
+  <header
+    class="bg-ctp-surface0/30 py-2 px-4 flex justify-between items-center"
+  >
     <h1 class="w-full text-2xl font-bold">SplitIt</h1>
 
     <div class="flex gap-2 items-center">
@@ -61,7 +63,7 @@ const updateTax = () => {
         />
       </div>
     </div>
-  </div>
+  </header>
   <p v-if="store.bills.length === 0" class="m-4 mb-0 bg-ctp-surface0 p-2">
     <b>¡Aún no tienes ningún split! </b>¡Empieza a dividir la cuenta! Escribe el
     nombre del primer <b>split </b>y dale a <b>Crear</b>.
