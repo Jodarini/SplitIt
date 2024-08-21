@@ -98,7 +98,10 @@ const deleteSplit = () => {
         <h2 class="w-full p-2 text-xl font-bold text-ctp-mauve">
           {{ user.name }}
         </h2>
-        <button @click="deleteSplit" class="min-w-max text-ctp-red">
+        <button
+          @click="deleteSplit"
+          class="min-w-max text-ctp-red hover:bg-ctp-surface0/50 px-1 rounded"
+        >
           Borrar split
         </button>
       </div>

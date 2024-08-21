@@ -88,7 +88,15 @@ watch(store, () => {
 
   <BillComp v-for="user in store.bills" :key="user.id" :user />
 
-  <BillTotal v-if="store.bills.length > 0" :total />
+  <div v-if="store.bills.length > 0" class="flex justify-between px-4">
+    <button
+      @click="store.bills = []"
+      class="min-w-max text-ctp-red hover:bg-ctp-surface0/50 px-1 rounded"
+    >
+      Borrar todos
+    </button>
+    <BillTotal :total />
+  </div>
 
   <div class="flex w-full justify-center gap-2 text-ctp-subtext1"></div>
 </template>
