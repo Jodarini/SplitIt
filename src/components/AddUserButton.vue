@@ -15,7 +15,7 @@ const addUser = () => {
 </script>
 
 <template>
-  <div class="flex items-center gap-2 p-4">
+  <div class="flex items-center gap-2 pt-4">
     <form @submit.prevent="addUser" class="flex w-full font-bold">
       <input
         type="text"

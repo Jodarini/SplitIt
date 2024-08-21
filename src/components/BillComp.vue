@@ -122,7 +122,7 @@ const deleteSplit = () => {
           type="submit"
           class="rounded bg-ctp-mauve p-2 text-ctp-surface0"
         >
-          Actualizar
+          Aceptar
         </button>
       </form>
     </div>
