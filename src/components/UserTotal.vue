@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import type { User } from "./BillComp.vue";
 
 const props = defineProps<{
   total: { total: number; taxTotal: number; tipTotal: number };

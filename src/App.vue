@@ -34,8 +34,33 @@ const updateTax = () => {
 </script>
 
 <template>
-  <div class="bg-ctp-surface0/30 p-2">
+  <div class="bg-ctp-surface0/30 p-2 flex justify-between items-center">
     <h1 class="w-full text-2xl font-bold">SplitIt</h1>
+
+    <div class="flex gap-2 items-center">
+      <div class="flex gap-2">
+        <span>Tax(%): </span>
+        <input
+          type="number"
+          class="w-12 bg-ctp-crust/50"
+          min="0"
+          max="100"
+          v-model="newTax"
+          @change="updateTax"
+        />
+      </div>
+      <div class="flex gap-2 items-center">
+        <span>Tip(%): </span>
+        <input
+          type="number"
+          class="w-12 bg-ctp-crust/50"
+          min="0"
+          max="100"
+          v-model="newTip"
+          @change="updateTip"
+        />
+      </div>
+    </div>
   </div>
   <p v-if="store.bills.length === 0" class="m-4 mb-0 bg-ctp-surface0 p-2">
     <b>¡Aún no tienes ningún split! </b>¡Empieza a dividir la cuenta! Escribe el
@@ -47,24 +72,5 @@ const updateTax = () => {
 
   <BillTotal v-if="store.bills.length > 0" :total />
 
-  <div class="flex w-full justify-center gap-1 text-ctp-subtext1">
-    <span>Tax(%):</span>
-    <input
-      type="number"
-      class="w-max bg-transparent"
-      min="0"
-      max="100"
-      v-model="newTax"
-      @change="updateTax"
-    />
-    <span>Tip(%):</span>
-    <input
-      type="number"
-      class="w-max bg-transparent"
-      min="0"
-      max="100"
-      v-model="newTip"
-      @change="updateTip"
-    />
-  </div>
+  <div class="flex w-full justify-center gap-2 text-ctp-subtext1"></div>
 </template>

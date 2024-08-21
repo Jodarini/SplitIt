@@ -38,9 +38,23 @@ const deleteItem = () => {
       <p class="">{{ formattedAmount }}</p>
       <button
         @click="deleteItem"
-        class="rounded px-2 text-ctp-red hover:bg-ctp-surface0"
+        class="rounded text-ctp-surface2 hover:text-ctp-red"
       >
-        X
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          data-icon="SvgX3"
+          aria-hidden="true"
+        >
+          <path d="M8.464 8.464l7.072 7.072m0-7.072l-7.072 7.072"></path>
+        </svg>
       </button>
     </div>
   </div>
