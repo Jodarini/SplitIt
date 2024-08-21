@@ -20,7 +20,7 @@ const formattedAmount = computed(() =>
 
 <template>
   <div class="flex flex-col font-bold">
-    <div class="py-2">Numero de items: {{ numberOfItems }}</div>
+    <div class="py-2">Número de items: {{ numberOfItems }}</div>
     <div class="py-2">Total: {{ formattedAmount }}</div>
   </div>
 </template>
