@@ -53,7 +53,7 @@ watch(store, () => {
   <header
     class="bg-ctp-surface0/30 py-2 px-4 flex justify-between items-center"
   >
-    <h1 class="text-2xl font-bold">SplitIt</h1>
+    <h1 class="text-2xl font-bold text-ctp-mauve">SplitIt</h1>
 
     <div class="flex gap-2 items-center">
       <div class="flex gap-2">
