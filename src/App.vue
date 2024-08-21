@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import BillComp from "./components/BillComp.vue";
 import BillTotal from "./components/BillTotal.vue";
 import { store } from "./store";
@@ -12,8 +12,8 @@ export interface BillItem {
   price: number;
 }
 
-const newTip = ref(store.tip);
-const newTax = ref(store.tax);
+const newTip = ref(localStorage.tip ? JSON.parse(localStorage.tip) : 15);
+const newTax = ref(localStorage.tax ? JSON.parse(localStorage.tax) : 8);
 
 const total = computed(() => {
   const prices = store.bills.map((bill) => {
@@ -31,17 +31,33 @@ const updateTip = () => {
 const updateTax = () => {
   store.tax = newTax.value;
 };
+
+if (localStorage.bills === undefined || localStorage.bills === "") {
+  localStorage.bills = store.bills;
+  localStorage.tax = store.tax;
+  localStorage.tip = store.tip;
+} else {
+  store.bills = JSON.parse(localStorage.bills);
+  store.tax = JSON.parse(localStorage.tax);
+  store.tip = JSON.parse(localStorage.tip);
+}
+
+watch(store, () => {
+  localStorage.bills = JSON.stringify(store.bills);
+  localStorage.tax = JSON.stringify(store.tax);
+  localStorage.tip = JSON.stringify(store.tip);
+});
 </script>
 
 <template>
   <header
     class="bg-ctp-surface0/30 py-2 px-4 flex justify-between items-center"
   >
-    <h1 class="w-full text-2xl font-bold">SplitIt</h1>
+    <h1 class="text-2xl font-bold">SplitIt</h1>
 
     <div class="flex gap-2 items-center">
       <div class="flex gap-2">
-        <span>Tax(%): </span>
+        <span>Tax (%): </span>
         <input
           type="number"
           class="w-12 bg-ctp-crust/50"
@@ -52,7 +68,7 @@ const updateTax = () => {
         />
       </div>
       <div class="flex gap-2 items-center">
-        <span>Tip(%): </span>
+        <span>Tip (%): </span>
         <input
           type="number"
           class="w-12 bg-ctp-crust/50"

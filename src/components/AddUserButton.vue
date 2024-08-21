@@ -10,6 +10,7 @@ const addUser = () => {
     name: userName.value,
     items: null,
   });
+  // localStorage.bills = JSON.stringify(store.bills);
   userName.value = "";
 };
 </script>

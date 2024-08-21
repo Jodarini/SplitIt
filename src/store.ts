@@ -5,7 +5,7 @@ export interface BillItem {
   name: string;
   price: number;
 }
-interface Bill {
+export interface Bill {
   id: string;
   name: string;
   items: BillItem[] | null;

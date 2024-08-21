@@ -53,11 +53,13 @@ const handleKeyDown = (e: KeyboardEvent) => {
 
 const deleteSplit = () => {
   // TODO: add confirmation prompt
+
   const indexToRemove = store.bills.findIndex(
     (bill) => bill.id === props.user.id,
   );
   if (indexToRemove !== -1) {
     store.bills.splice(indexToRemove, 1);
+    // localStorage.bills = store.bills;
   }
 };
 </script>
