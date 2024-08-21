@@ -64,7 +64,7 @@ const deleteSplit = () => {
 </script>
 
 <template>
-  <div class="m-2 mb-6 flex flex-col gap-2 p-2">
+  <div class="my-6 flex flex-col gap-2 md:p-0">
     <div
       ref="nameDiv"
       class="flex items-center justify-between gap-2"

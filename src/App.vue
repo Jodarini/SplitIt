@@ -81,7 +81,7 @@ watch(store, () => {
         </div>
       </div>
     </header>
-    <main>
+    <main class="p-4 md:p-0">
       <p v-if="store.bills.length === 0" class="m-4 mb-0 bg-ctp-surface0 p-2">
         <b>¡Aún no tienes ningún split! </b>¡Empieza a dividir la cuenta!
         Escribe el nombre del primer <b>split </b>y dale a <b>Crear</b>.
